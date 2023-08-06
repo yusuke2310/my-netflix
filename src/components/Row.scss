@@ -1,0 +1,36 @@
+
+.Row {
+  margin-left: 20px;
+  color: #b33131;
+
+  &-posters { /* &は親セレクタの参照を意味する */
+    display: flex;
+    overflow-y: hidden; // 垂直方向にオーバーフローした内容は非表示
+    overflow-x: scroll; // 横方向にオーバーフローした内容はスクロールバーでアクセス可能に
+    padding: 20px;
+
+    &::-webkit-scrollbar {
+      display: none; //スクロールバー自体は表示されない
+    }
+  }
+
+  &-poster {
+    object-fit: contain; // 画像が要素の境界内に収まるように調整され、明日アスペクト比はいじ
+    width: 100%; // 画像の幅は親要素の100%に設定
+    max-height: 100px;
+    margin: 10px;
+    transition: transform 450ms; // 画像の変形に関する変更は450msかけてアニメーション効果として適用される
+
+    &-large {
+      max-height: 250px;
+
+      &:hover {
+        transform: scale(1.09); // ホバー時に画像の元サイズの109%に拡大される
+      }
+    }
+
+    &:hover {
+      transform: scale(1.08);// ホバー時に画像の元サイズの108%に拡大される
+    }
+  }
+}
